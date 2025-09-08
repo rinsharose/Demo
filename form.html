@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hands-on Task</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #myForm {
+      padding: 15px;
+      border: 1px solid #ccc;
+      width: 300px;
+      border-radius: 8px;
+    }
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 95%;
+    }
+    .highlight {
+      border: 2px solid red;
+      background-color: #ffe5e5;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="formHeading">User Registration Form</h2>
+
+  <form id="myForm">
+    <label for="name">Name (mandatory):</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label for="email">Email (mandatory):</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age"><br><br>
+
+    <button type="button" onclick="styleForm()">Submit</button>
+  </form>
+
+  <script>
+    function styleForm() {
+      // Highlight mandatory fields
+      let nameField = document.getElementById("name");
+      let emailField = document.getElementById("email");
+
+      if (nameField.value === "") {
+        nameField.classList.add("highlight");
+      } else {
+        nameField.classList.remove("highlight");
+      }
+
+      if (emailField.value === "") {
+        emailField.classList.add("highlight");
+      } else {
+        emailField.classList.remove("highlight");
+      }
+
+      // Style heading
+      let heading = document.getElementById("formHeading");
+      heading.style.color = "blue";
+      heading.style.textAlign = "center";
+      heading.style.textDecoration = "underline";
+
+      // Style form
+      let form = document.getElementById("myForm");
+      form.style.backgroundColor = "#f0f8ff";
+      form.style.boxShadow = "2px 2px 12px gray";
+
+      // Bold all labels
+      let labels = document.getElementsByTagName("label");
+      for (let i = 0; i < labels.length; i++) {
+        labels[i].style.fontWeight = "bold";
+      }
+    }
+  </script>
+
+</body>
+</html>
